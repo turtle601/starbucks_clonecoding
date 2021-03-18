@@ -11,6 +11,7 @@ body {
     /* sans-serif는 나눔고딕이 연결되는 코드 */
     /* body태그에 나눔고딕이 적용되었다.  */
     font-family: 'Nanum Gothic', sans-serif;
+    height: 3000px;
 }
 
 img{
@@ -27,10 +28,86 @@ a {
     margin: 0 auto;  
     position:relative;
 }
+/* 기존 버튼 */
+.btn {
+    width: 130px;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    color: #333;
+    font-size: 16px;
+    text-align:center;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: .4s;
+}
+/* 기존 버튼에 마우스를 갖다 댈 때 */
+.btn:hover {
+    background-color: #333;
+    color : #fff;
+}
+/* 버튼이 반전된 버튼 */
+.btn.btn--reverse{
+    background-color: #333;
+    color : #fff;
+}
+
+/* 버튼이 반전된 버튼에 마우스를 갖다 댈 때 */
+.btn.btn--reverse:hover{
+    background-color: transparent;
+    color : #333;
+}
+
+/* 갈색 버튼 */
+.btn.btn--brown{
+    color: #592B18;
+    border-color: #592B18;
+
+}
+
+/* 갈색 버튼에 마우스를 갖다 댈 때 */
+.btn.btn--brown:hover{
+    color: #fff;
+    background-color: #592B18;
+}
+
+/* 금색 버튼 */
+.btn.btn--gold{
+    color: #D9AA8A;
+    border-color: #D9AA8A;
+
+}
+
+/* 금색 버튼에 갖다 댈 때 */
+.btn.btn--gold:hover{
+    color: #fff;
+    background-color: #D9AA8A;
+}
+
+/* 흰색 버튼 */
+.btn.btn--white{
+    color: #fff;
+    border-color: #fff;
+
+}
+
+/* 흰색 버튼에 갖다 댈 때 */
+.btn.btn--white:hover{
+    color: #333;
+    background-color: #fff;
+}
+
 /* HEADER */
 header {
+    width: 100%;
+    /* 원래는 넓이는 최대한으로 넓어지려고 시도하지만 position이
+    absolute나 fixed일 경우 최소한으로 넓어지려고 한다. width */
+    /* position:relative; */
     background-color:#f6f5f0;
     border-bottom: 1px solid #c8c8c8;
+    position: fixed;
+    top: 0;
+    z-index: 9;
 
 }
 /* 헤더의 자식 요소임을 확실히 나타내기 위해서 >표기 */
@@ -249,3 +326,366 @@ header .main-menu .item .item__contents .contents__texture .inner p{
     
 }
 
+/* 화면 옆에 스크롤에 따라 움직이는 그림들 */
+header .badges{
+    position: absolute;
+    top: 132px;
+    right: 12px;
+}
+
+header .badges .badge{
+    border-radius: 10px;
+    /* 저장된 그림이 모서리에 넘치지 않도록 */
+    overflow: hidden;
+    /* 아래 여백 */
+    margin-bottom: 12px;
+    /* 테두리에 그림자를 주는 기능 */
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.15);
+    cursor: pointer
+}
+
+/* Visual : header 바로 밑 커피 그림 칸 */
+.visual{
+    margin-top : 120px;
+    background-image: url("../images/visual_bg.jpg");
+    background-position: center;
+}
+.visual .inner{
+    height: 646px;
+
+}
+.visual .title{
+    position: absolute;
+    top: 88px;
+    left:-10px; 
+    
+}
+.visual .title .btn{
+    position: absolute;
+    top: 259px;
+    left: 173px;
+}
+.visual .cup1.image{
+    position: absolute;
+    bottom: 0;
+    right: -47px;
+}
+.visual .cup1.text{
+    position: absolute;
+    top: 38px;
+    right: 171px;
+}
+.visual .cup2.image{
+    position: absolute;
+    bottom: 0;
+    right: 162px;
+}
+.visual .cup2.text{
+    position: absolute;
+    top: 321px;
+    right: 416px;
+}
+.visual .spoon{
+    position: absolute;
+    bottom: 0;
+    left: 275px;
+}
+
+.visual .fade-in{
+    opacity: 0;
+}
+
+/* NOTICE:공지사항 */
+
+.notice{
+
+}
+.notice .notice-line{
+    position: relative;
+}
+
+.notice .notice-line .bg-left{
+    position: absolute;
+    top : 0;
+    left : 0;
+    width: 50%;
+    height: 100%;
+    background-color: #333;
+}
+
+.notice .notice-line .bg-right{
+    position: absolute;
+    top : 0;
+    right : 0;
+    width: 50%;
+    height: 100%;
+    background-color: #f6f5ef;
+}
+
+.notice .notice-line .inner{
+    height: 62px;
+    display: flex;
+}
+
+.notice .notice-line .inner__left{
+    width: 60%;
+    height: 100%;
+    background-color:#333;
+    display:flex;
+    align-items: center;
+}
+
+.notice .notice-line .inner__left h2{
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+.notice .notice-line .inner__left .swiper-container{
+    height: 62px;
+    /* display:flex를 할경우 각 요소들은 최소로 표현되려고하는 경향이 있다-따라서 표현이 안될 때가 있다. 
+    따라서 flex-grow를 통해 크기의 정도를 결정해준다.  */
+    flex-grow:1;
+
+}
+
+.notice .notice-line .inner__left .swiper-slide{
+    height: 62px;
+    display: flex;
+    align-items: center;
+}
+
+.notice .notice-line .inner__left .swiper-slide a{
+    color: #fff;
+}
+
+.notice .notice-line .inner__left .notice-line__more{
+    width: 62px;
+    height: 62px;
+    display: flex;
+    /* 수평 가운데 */
+    justify-content: center;
+    /* 수직 가운데 */
+    align-items: center; 
+    
+}
+
+.notice .notice-line .inner__left .notice-line__more .material-icons{
+
+    color: #fff;
+    /* 아이콘의 원래 크기 : 24px */
+    font-size: 30px;
+}
+
+
+.notice .notice-line .inner__right{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    /* 오른쪽 정렬 */
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.notice .notice-line .inner__right h2{
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.notice .notice-line .inner__right .toggle-promotion{
+    width : 62px;
+    height : 62px;
+    cursor : pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notice .notice-line .inner__right .toggle-promotion .material-icons{
+    color: #333;
+    /* 아이콘의 원래 크기 : 24px */
+    font-size: 30px;
+}
+
+/* 프로모션 페이지 작성 */
+.notice .promotion{
+    height: 693px;
+    background-color: #f6f5ef;
+    position: relative;
+    /* 프로모션 버튼을 눌렀을 때  */
+    transition: height .4s;
+    /* 길이가 줄어들면서 안에 있던 내용들이 넘쳐날 수도 있어
+    overflow: hidden값으로 하면 그냥 없어진다.  */
+    overflow: hidden;
+}
+
+/* 프로모션 닫기 */
+.notice .promotion.hide{
+
+    height: 0; 
+}
+
+/* 프로모션에서 swiper 컨테이너 설정(사이즈 등등) */
+.notice .promotion .swiper-container{
+    /* calc() : 계산 함수 */
+    /* ex) 100% - 50px */
+    width: calc(819px * 3 + 20px);
+    height: 553px;
+    position: absolute;
+    /* 이때 충분한 화면 크기가 제공이 안될 시 가운데 정렬이 안된다.  */
+    top: 40px;
+    left: 50%;
+    margin-left: calc((819px * 3 + 20px)/ -2);
+    /* 이때 왼쪽이나 50퍼센트 간 다음 margin-left를 통해 50% 갔던 값을 다시 빼주면 된다.  */
+    /* left -> margin-left
+    right -> margin-right 사용하세요 */
+}
+
+/* swiper들은 1의 활성화된 항목들이 있다. (사용자들이 볼 수 있다고 인식되는) 
+그 하나의 항목을 제외한 나머지 항목에 대해서 투명도 = .5*/
+.notice .promotion .swiper-slide{
+    opacity: .5;
+    transition: opacity 1s;
+    position: relative;
+}
+
+/* swiper들은 1의 활성화된 항목들이 있다. (사용자들이 볼 수 있다고 인식되는) 
+그 하나의 항목에 대해서 투명도 = 1*/
+.notice .promotion .swiper-slide-active{
+    opacity: 1;
+}
+
+/* 프로모션 사진 밑에 버튼에 대한 설정 */
+.notice .promotion .swiper-slide .btn{
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.notice .promotion .swiper-pagination{
+    bottom: 40px;
+    left: 0;
+    right: 0;
+}
+
+.notice .promotion .swiper-pagination .swiper-pagination-bullet{
+    
+    background-color: transparent;
+    background-image: url("../images/promotion_slide_pager.png");
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    outline: none;
+}  
+
+.notice .promotion .swiper-pagination .swiper-pagination-bullet:last-child{
+
+    margin-right: 0;
+ 
+}  
+
+.notice .promotion .swiper-pagination .swiper-pagination-bullet-active{
+    background-image: url("../images/promotion_slide_pager_on.png");
+    /* 이렇게 할 경우 배경이 겹치는 현상이 발생한다. */
+    /* 따라서 맨 처음 배경을 투명으로 설정하여 겹치는 현상 방지한다.  background-color: transparent;  */
+}  
+
+/* 프로모션의 화살표 */
+.notice .promotion .swiper-prev,
+.notice .promotion .swiper-next{
+    width: 42px;
+    height: 42px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 300px;
+    z-index: 1;
+    cursor: pointer;
+    outline: none;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    transition: .4s;
+
+
+}
+/* 프로모션의 이전 항목으로 넘기는 화살표의 위치 */
+.notice .promotion .swiper-prev{
+    left:50%;
+    margin-left: -480px;
+}
+
+/* 프로모션의 다음 항목으로 넘기는 화살표의 위치 */
+.notice .promotion .swiper-next{
+    right:50%;
+    margin-right: -480px;
+}
+
+/* 프로모션 화살표에 마우스를 갖다 대었을 때 */
+.notice .promotion .swiper-prev:hover,
+.notice .promotion .swiper-next:hover{
+    background-color: #333;
+    color: #fff;    
+}
+
+/* 프로모션 밑에 보상을 보여주는 칸 */
+.rewards{
+    position: relative;
+
+}
+/* reward 왼쪽부분은 공지사항과 같은 색으로 채운다.  */
+.rewards .bg-left{
+    width: 50%;
+    height: 100%;
+    background-color: #272727;
+    position: absolute;
+    top:0;
+    left:0;
+
+}
+/* reward 왼쪽부분은 프로모션과 같은 색으로 채운다.  */
+.rewards .bg-right{
+    width: 50%;
+    height: 100%;
+    background-color: #d5c798;
+    position: absolute;
+    top:0;
+    right:0;
+
+}
+/* reward 내부(로고 - 돋보기) */
+.rewards .inner{
+    background-image:url("../images/rewards.jpg");
+    height: 241px;
+}
+
+/* 그룹들을 묶어놓은 것 */
+.rewards .btn-group{
+    width: 250px;
+    display: flex;
+    /* 수평으로 나열하되 범위를 넘어갈 경우 줄바꿈을 허용한다.  */
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 24px;
+    right: 0; 
+}
+
+/* 회원가입 버튼 */
+.rewards .btn-group .btn.sign-up{
+    margin-right: 10px;
+}
+
+/* 로그인 버튼 */
+.rewards .btn-group .btn.sign-in{
+    width: 110px;
+}
+
+/* e-선물 버튼 */
+.rewards .btn-group .btn.gift{
+    margin-top: 10px;
+    /* btn-group 컨테이너에서 최대한의 크기로 늘어나라 */
+    flex-grow: 1;
+}  
